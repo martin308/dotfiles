@@ -1,5 +1,8 @@
-all: home-layout defaults brew-packages asdf
+all: home-layout defaults brew-packages asdf prezto
 	@echo "Done."
+
+prezto:
+	@$(MAKE) -f prezto.mk
 
 asdf:
 	@$(MAKE) -f asdf.mk
