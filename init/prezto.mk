@@ -10,4 +10,5 @@ $(LINKS):
 	@ln -s $(ZPREZTO)/runcoms/$(subst .,,$(notdir $(@))) $(@)
 
 $(ZPREZTO):
+	@mkdir -p $(ZPREZTO)
 	@git clone --recursive https://github.com/sorin-ionescu/prezto.git $(ZPREZTO)
