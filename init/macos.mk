@@ -1,5 +1,8 @@
-all: home-layout defaults brew-packages asdf prezto git
+all: home-layout defaults brew-packages asdf prezto git tmux
 	@echo "Done."
+
+tmux:
+	@$(MAKE) -f tmux.mk
 
 git:
 	@$(MAKE) -f git.mk
