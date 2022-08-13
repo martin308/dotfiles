@@ -1,7 +1,6 @@
-PREFIX := /usr/local
 HOMEBREW_INSTALLER=https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-BREW=$(PREFIX)/bin/brew
-XCODE=/Applications/Xcode.app
+BREW=/opt/homebrew/bin/brew
+XCODE=$(shell xcode-select -p)
 
 all: packages
 
@@ -11,8 +10,7 @@ $(XCODE):
 
 $(BREW): $(XCODE)
 	@echo Installing Homebrew
-	@/bin/bash -c "$(curl -fsSL $(HOMEBREW_INSTALLER))"
-	@brew doctor
+	@/bin/bash -c "$$(curl -fsSL $(HOMEBREW_INSTALLER))"
 
 packages: $(BREW)
-	@brew bundle --file=Brewfile
+	@$(BREW) bundle --file=Brewfile
