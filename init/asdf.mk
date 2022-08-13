@@ -12,21 +12,21 @@ $(ASDF):
 	@git clone https://github.com/asdf-vm/asdf.git $(ASDF) --branch $(ASDF_VERSION)
 
 $(NODE_JS):
-	@asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-	@asdf install nodejs latest
-	@asdf global nodejs latest
+	@$(ASDF)/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+	@$(ASDF)/bin/asdf install nodejs latest
+	@$(ASDF)/bin/asdf global nodejs latest
 
 $(GOLANG):
-	@asdf plugin add golang https://github.com/kennyp/asdf-golang.git
-	@asdf install golang latest
-	@asdf global golang latest
+	@$(ASDF)/bin/asdf plugin add golang https://github.com/kennyp/asdf-golang.git
+	@$(ASDF)/bin/asdf install golang latest
+	@$(ASDF)/bin/asdf global golang latest
 
 $(RUBY):
-	@asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-	@asdf install ruby latest
-	@asdf global ruby latest
+	@$(ASDF)/bin/asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+	@$(ASDF)/bin/asdf install ruby latest
+	@$(ASDF)/bin/asdf global ruby latest
 
 $(KUBECTL):
-	@asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
-	@asdf install kubectl 1.24.1
-	@asdf global kubectl 1.24.1
+	@$(ASDF)/bin/asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
+	@$(ASDF)/bin/asdf install kubectl 1.24.1
+	@$(ASDF)/bin/asdf global kubectl 1.24.1
