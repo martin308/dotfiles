@@ -12,7 +12,7 @@ $(HOME)/.tmux.conf.local: $(TMUX)
 	@cp $(TMUX)/.tmux.conf.local $@
 
 $(HOME)/.p10k.zsh:
-	@ln -s $(HOME)/.p10k.zsh $@
+	@ln -s $(PWD)/.p10k.zsh $@
 
 $(TMUX):
 	@mkdir -p $(TMUX)
