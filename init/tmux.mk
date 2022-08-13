@@ -2,14 +2,17 @@ TMUX=$(HOME)/.tmux
 
 .PHONEY: all
 
-all: $(HOME)/.tmux.conf $(HOME)/.tmux.conf.local
+all: $(HOME)/.tmux.conf $(HOME)/.tmux.conf.local $(HOME)/.p10k.zsh
 	@echo "TMUX Done."
 
 $(HOME)/.tmux.conf: $(TMUX)
-	@ln -s -f $(TMUX)/.tmux.conf $@
+	@ln -s $(TMUX)/.tmux.conf $@
 
 $(HOME)/.tmux.conf.local: $(TMUX)
 	@cp $(TMUX)/.tmux.conf.local $@
+
+$(HOME)/.p10k.zsh:
+	@ln -s $(HOME)/.p10k.zsh $@
 
 $(TMUX):
 	@mkdir -p $(TMUX)
