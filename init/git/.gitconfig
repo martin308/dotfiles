@@ -1,0 +1,51 @@
+[credential]
+	helper = osxkeychain
+[user]
+	email = me@martinholman.co.nz
+	name = Martin Holman
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = Kaleidoscope
+[difftool]
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
+[mergetool]
+    prompt = false
+[merge]
+    tool = Kaleidoscope
+[core]
+	excludesfile = ~/.gitignore
+	editor = code --wait
+[push]
+	default = simple
+[hub]
+	protocol = https
+[alias]
+	co = checkout
+	cob = checkout -b
+	undo = reset HEAD~1 --mixed
+	prune-remote = fetch --prune
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	recent = "!f() { git for-each-ref --sort=-committerdate \"refs/heads/\" --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:bold red)%(objectname:short) %(color:bold green)(%(committerdate:relative)) %(color:blue)%(authorname) %(color:green)%(upstream:track)%0a  %(color:black) %(color:reset)|%(contents:subject)%0a  |' | column -ts '|' | less --tabs=4 --quit-if-one-screen --RAW-CONTROL-CHARS --no-init; }; f"
+	g = grep --break --heading --line-number
+	s = switch
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[grep]
+	lineNumber = true
+[github]
+	user = martin308
+[ghi]
+	token = !security find-internet-password -a martin308 -s github.com -l 'ghi token' -w
+[init]
+	defaultBranch = main
