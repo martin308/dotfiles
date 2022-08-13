@@ -7,7 +7,7 @@ all: packages
 
 $(XCODE):
 	@echo "Xcode is not installed. Installing."
-	-xcode-select --install
+	@xcode-select --install ||:
 
 $(BREW): $(XCODE)
 	@echo Installing Homebrew
