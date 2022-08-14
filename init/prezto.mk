@@ -11,4 +11,4 @@ $(LINKS):
 
 $(ZPREZTO):
 	@mkdir -p $(ZPREZTO)
-	@git clone --recursive https://github.com/sorin-ionescu/prezto.git $(ZPREZTO)
+	@git clone --recursive https://github.com/martin308/prezto.git $(ZPREZTO)
