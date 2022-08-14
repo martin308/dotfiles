@@ -1,6 +1,6 @@
 ROOT := $(abspath $(PWD)/..)
 
-all: home-layout defaults brew-packages asdf prezto git tmux dotfiles
+all: home-layout defaults brew-packages asdf prezto tmux dotfiles
 	@echo "Done."
 
 dotfiles:
@@ -8,9 +8,6 @@ dotfiles:
 
 tmux:
 	@$(MAKE) -f tmux.mk
-
-git:
-	@$(MAKE) -f git.mk
 
 prezto:
 	@$(MAKE) -f prezto.mk
