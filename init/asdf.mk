@@ -3,9 +3,10 @@ ASDF_VERSION=v0.10.2
 NODE_JS=$(ASDF)/plugins/nodejs
 GOLANG=$(ASDF)/plugins/golang
 RUBY=$(ASDF)/plugins/ruby
+PYTHON=$(ASDF)/plugins/python
 KUBECTL=$(ASDF)/plugins/kubectl
 
-all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(KUBECTL)
+all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL)
 	@echo "ASDF Done."
 
 $(ASDF):
@@ -25,6 +26,11 @@ $(RUBY):
 	@$(ASDF)/bin/asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 	@$(ASDF)/bin/asdf install ruby latest
 	@$(ASDF)/bin/asdf global ruby latest
+
+$(PYTHON):
+	@$(ASDF)/bin/asdf plugin add python https://github.com/danhper/asdf-python.git
+	@$(ASDF)/bin/asdf install python latest
+	@$(ASDF)/bin/asdf global python latest
 
 $(KUBECTL):
 	@$(ASDF)/bin/asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
