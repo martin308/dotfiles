@@ -5,8 +5,9 @@ GOLANG=$(ASDF)/plugins/golang
 RUBY=$(ASDF)/plugins/ruby
 PYTHON=$(ASDF)/plugins/python
 KUBECTL=$(ASDF)/plugins/kubectl
+RUST=$(ASDF)/plugins/rust
 
-all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL)
+all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL) $(RUST)
 	@echo "ASDF Done."
 
 $(ASDF):
@@ -36,3 +37,8 @@ $(KUBECTL):
 	@$(ASDF)/bin/asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
 	@$(ASDF)/bin/asdf install kubectl 1.24.1
 	@$(ASDF)/bin/asdf global kubectl 1.24.1
+
+$(RUST):
+	@$(ASDF)/bin/asdf plugin add rust https://github.com/asdf-community/asdf-rust.git
+	@$(ASDF)/bin/asdf install rust 1.63.0
+	@$(ASDF)/bin/asdf global rust 1.63.0
