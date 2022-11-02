@@ -6,8 +6,9 @@ RUBY=$(ASDF)/plugins/ruby
 PYTHON=$(ASDF)/plugins/python
 KUBECTL=$(ASDF)/plugins/kubectl
 RUST=$(ASDF)/plugins/rust
+TERRAFORM=$(ASDF)/plugins/terraform
 
-all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL) $(RUST)
+all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL) $(RUST) $(TERRAFORM)
 	@echo "ASDF Done."
 
 $(ASDF):
@@ -42,3 +43,8 @@ $(RUST):
 	@$(ASDF)/bin/asdf plugin add rust https://github.com/asdf-community/asdf-rust.git
 	@$(ASDF)/bin/asdf install rust 1.63.0
 	@$(ASDF)/bin/asdf global rust 1.63.0
+
+$(TERRAFORM):
+	@$(ASDF)/bin/asdf plugin add terraform https://github.com/asdf-community/asdf-hashicorp.git
+	@$(ASDF)/bin/asdf install terraform 1.3.0
+	@$(ASDF)/bin/asdf global terraform 1.3.0
