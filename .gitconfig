@@ -3,19 +3,18 @@
 [user]
 	email = me@martinholman.co.nz
 	name = Martin Holman
-[difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [diff]
-    tool = Kaleidoscope
+    tool = vscode
 [difftool]
     prompt = false
-[mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-    trustExitCode = true
+[mergetool "vscode"]
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [mergetool]
     prompt = false
 [merge]
-    tool = Kaleidoscope
+    tool = vscode
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
