@@ -27,7 +27,7 @@
 	protocol = https
 [alias]
 	co = checkout
-	cob = checkout -b
+	cob = "!f() { git checkout -b martin308/$1; }; f"
 	undo = reset HEAD~1 --mixed
 	prune-remote = fetch --prune
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
