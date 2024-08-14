@@ -68,3 +68,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[includeIf "gitdir:~/src/honeycomb/"]
+	path = ~/src/honeycomb/.gitconfig
