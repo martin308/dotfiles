@@ -1,0 +1,6 @@
+golang.org/x/tools/gopls@latest
+github.com/cweill/gotests/gotests@v1.6.0
+github.com/fatih/gomodifytags@v1.17.0
+github.com/josharian/impl@v1.4.0
+github.com/haya14busa/goplay/cmd/goplay@v1.0.0
+github.com/go-delve/delve/cmd/dlv@latest
