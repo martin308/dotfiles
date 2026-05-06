@@ -9,4 +9,4 @@ all: link
 link: $(DOTFILES)
 
 $(DOTFILES):
-	@ln -s $(ROOT)/$(notdir $(@)) $(@)
+	@ln -sfn $(ROOT)/$(notdir $(@)) $(@)
