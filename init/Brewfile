@@ -1,6 +1,7 @@
 brew "asdf"
 brew "awscli", args: ["ignore-dependencies"]
 brew "bat"
+brew "block-goose-cli"
 brew "btop"
 brew "ctop"
 brew "diff-so-fancy"
