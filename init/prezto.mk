@@ -1,12 +1,14 @@
-ZHOME := $(or $(ZDOTDIR), $(HOME))
-ZPREZTO=$(ZHOME)/.zprezto
+ZHOME := $(or $(ZDOTDIR),$(HOME))
+ZPREZTO := $(ZHOME)/.zprezto
 ZPREZTO_FILES := zlogin zlogout zpreztorc zprofile zshenv zshrc
-LINKS=$(ZPREZTO_FILES:%=$(ZHOME)/.%)
+LINKS := $(ZPREZTO_FILES:%=$(ZHOME)/.%)
 
-all: $(LINKS) $(ZPREZTO)
+.PHONY: all
+
+all: $(ZPREZTO) $(LINKS)
 	@echo "Done."
 
-$(LINKS):
+$(LINKS): | $(ZPREZTO)
 	@ln -s $(ZPREZTO)/runcoms/$(subst .,,$(notdir $(@))) $(@)
 
 $(ZPREZTO):

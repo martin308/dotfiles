@@ -1,9 +1,10 @@
-HOME := $(abspath $(PWD)/..)
-ROOT := $(abspath $(PWD))
-FILES := $(shell find $(ROOT) -type f -name '.*' -maxdepth 1)
-DOTFILES := $(addprefix $(HOME)/,$(notdir $(FILES)))
+ROOT := $(abspath $(CURDIR)/..)
+FILES := $(shell find $(ROOT) -maxdepth 1 -type f -name '.*')
+DOTFILES := $(patsubst $(ROOT)/%,$(HOME)/%,$(FILES))
 
-.PHONEY: link
+.PHONY: all link
+
+all: link
 
 link: $(DOTFILES)
 

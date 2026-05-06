@@ -1,11 +1,11 @@
-TMUX=$(HOME)/.tmux
+TMUX := $(HOME)/.tmux
 
-.PHONEY: all
+.PHONY: all
 
 all: $(HOME)/.tmux.conf
 	@echo "TMUX Done."
 
-$(HOME)/.tmux.conf: $(TMUX)
+$(HOME)/.tmux.conf: | $(TMUX)
 	@ln -s $(TMUX)/.tmux.conf $@
 
 $(TMUX):

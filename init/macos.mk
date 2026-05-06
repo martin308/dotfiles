@@ -1,3 +1,5 @@
+.PHONY: all home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
+
 all: home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
 	@echo "Done."
 

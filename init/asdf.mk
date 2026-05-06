@@ -8,6 +8,8 @@ KUBECTL=$(ASDF)/plugins/kubectl
 RUST=$(ASDF)/plugins/rust
 TERRAFORM=$(ASDF)/plugins/terraform
 
+.PHONY: all
+
 all: $(ASDF) $(RUBY) $(GOLANG) $(NODE_JS) $(PYTHON) $(KUBECTL) $(RUST) $(TERRAFORM)
 	@echo "ASDF Done."
 
