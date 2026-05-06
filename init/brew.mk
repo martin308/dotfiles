@@ -1,7 +1,7 @@
 HOMEBREW_INSTALLER := https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 BREW := /opt/homebrew/bin/brew
 
-.PHONY: all packages xcode
+.PHONY: all packages xcode update
 
 all: packages
 
@@ -17,3 +17,8 @@ $(BREW): | xcode
 
 packages: $(BREW)
 	@$(BREW) bundle --file=$(CURDIR)/Brewfile
+
+update:
+	@$(BREW) update
+	@$(BREW) bundle --file=$(CURDIR)/Brewfile
+	@$(BREW) upgrade

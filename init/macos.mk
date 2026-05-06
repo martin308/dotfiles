@@ -1,7 +1,14 @@
-.PHONY: all home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
+.PHONY: all update home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
 
 all: home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
 	@echo "Done."
+
+update:
+	@$(MAKE) -f brew.mk update
+	@$(MAKE) -f asdf.mk update
+	@$(MAKE) -f prezto.mk update
+	@$(MAKE) -f tmux.mk update
+	@echo "Update done."
 
 dotfiles:
 	@$(MAKE) -f dotfiles.mk

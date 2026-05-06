@@ -1,7 +1,7 @@
 TOOL_VERSIONS := $(abspath $(CURDIR)/../.tool-versions)
 PLUGINS := $(shell awk '!/^\#/ && NF {print $$1}' $(TOOL_VERSIONS))
 
-.PHONY: all plugins install
+.PHONY: all plugins install update
 
 all: install
 
@@ -13,3 +13,8 @@ plugins:
 install: plugins
 	@cd $(dir $(TOOL_VERSIONS)) && asdf install
 	@echo "ASDF Done."
+
+update: plugins
+	@asdf plugin update --all
+	@cd $(dir $(TOOL_VERSIONS)) && asdf install
+	@echo "ASDF updated."

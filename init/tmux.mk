@@ -1,9 +1,13 @@
 TMUX := $(HOME)/.tmux
 
-.PHONY: all
+.PHONY: all update
 
 all: $(HOME)/.tmux.conf
 	@echo "TMUX Done."
+
+update:
+	@git -C $(TMUX) pull --ff-only
+	@echo "TMUX updated."
 
 $(HOME)/.tmux.conf: | $(TMUX)
 	@ln -s $(TMUX)/.tmux.conf $@
