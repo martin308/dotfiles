@@ -1,5 +1,6 @@
 tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
+brew "asdf"
 brew "awscli", args: ["ignore-dependencies"]
 brew "bat"
 brew "btop"

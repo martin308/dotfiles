@@ -1,7 +1,7 @@
-ruby 3.1.2
-golang 1.21.3
-kubectl 1.28.6
-nodejs 18.17.0
+ruby 3.4.2
+golang 1.24.1
+kubectl 1.29.8
+nodejs 22.14.0
 python 3.10
-rust 1.63.0
+rust 1.81.0
 terraform 1.6.5

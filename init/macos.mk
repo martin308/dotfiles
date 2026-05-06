@@ -15,7 +15,7 @@ ghostty:
 prezto:
 	@$(MAKE) -f prezto.mk
 
-asdf:
+asdf: brew-packages
 	@$(MAKE) -f asdf.mk
 
 brew-packages:
