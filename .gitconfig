@@ -27,13 +27,28 @@
 [alias]
 	co = checkout
 	cob = "!f() { git checkout -b martin308/$1; }; f"
+	wta = "!f() { git worktree add martin308/$1; }; f"
 	undo = reset HEAD~1 --mixed
 	prune-remote = fetch --prune
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
 	recent = "!f() { git branch --format='%(HEAD) %(refname:short) - %(contents:subject) (%(committerdate:relative)) [%(authorname)]' --sort=-committerdate | fzf | awk '{print $1;}' | xargs git checkout; }; f"
+	remove-worktree = "!f() { git worktree list | tail -n +2 | fzf | awk '{print $1;}' | xargs git worktree remove; }; f"
 	g = grep --break --heading --line-number
 	s = switch
 	mini-log = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	wt-prune = "!f() { \
+			git fetch --prune && \
+			gone=$(git branch -vv | sed -n 's/^[* ]*\\([^ ]*\\) .* \\[.*: gone\\].*/\\1/p') && \
+			if [ -z \"$gone\" ]; then echo 'No stale worktrees found.'; return 0; fi && \
+			git worktree list --porcelain | \
+			awk '/^worktree /{wt=$2} /^branch refs\\/heads\\//{print wt \"\\t\" substr($2,12)}' | \
+			while IFS=$(printf '\\t') read -r wt br; do \
+					if echo \"$gone\" | grep -qxF \"$br\"; then \
+							echo \"Removing: $wt ($br)\" && \
+							git worktree remove \"$wt\"; \
+					fi; \
+			done; \
+	}; f"
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

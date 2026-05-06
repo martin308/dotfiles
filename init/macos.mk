@@ -1,6 +1,4 @@
-ROOT := $(abspath $(PWD)/..)
-
-all: home-layout defaults brew-packages asdf prezto tmux dotfiles
+all: home-layout defaults brew-packages asdf prezto tmux ghostty dotfiles
 	@echo "Done."
 
 dotfiles:
@@ -8,6 +6,9 @@ dotfiles:
 
 tmux:
 	@$(MAKE) -f tmux.mk
+
+ghostty:
+	@$(MAKE) -f ghostty.mk
 
 prezto:
 	@$(MAKE) -f prezto.mk
@@ -34,8 +35,5 @@ defaults:
 	@defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 	@defaults write com.apple.screencapture location ${HOME}/tmp/screenshots
-
-	@defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$(ROOT)/iterm2"
-	@defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
 	@killall SystemUIServer
