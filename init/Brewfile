@@ -1,4 +1,5 @@
 tap "charmbracelet/tap"
+tap "rwx-cloud/tap"
 
 brew "asdf"
 brew "awscli", args: ["ignore-dependencies"]
@@ -28,6 +29,7 @@ brew "libyaml"
 brew "mysql-client"
 brew "readline"
 brew "ripgrep"
+brew "rwx-cloud/tap/rwx"
 brew "tilt"
 brew "tmux"
 brew "watch"
