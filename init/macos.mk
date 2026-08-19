@@ -45,4 +45,5 @@ defaults:
 
 	@defaults write com.apple.screencapture location ${HOME}/tmp/screenshots
 
-	@killall SystemUIServer
+	@killall SystemUIServer || :
+	@killall ControlCenter || :
