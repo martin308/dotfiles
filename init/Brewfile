@@ -6,7 +6,7 @@ brew "awscli", args: ["ignore-dependencies"]
 brew "bat"
 brew "block-goose-cli"
 brew "btop"
-brew "charmbracelet/tap/crush"
+brew "charmbracelet/tap/crush", trusted: true
 brew "ctop"
 brew "diff-so-fancy"
 brew "difftastic"
@@ -29,7 +29,7 @@ brew "libyaml"
 brew "mysql-client"
 brew "readline"
 brew "ripgrep"
-brew "rwx-cloud/tap/rwx"
+brew "rwx-cloud/tap/rwx", trusted: true
 brew "tilt"
 brew "tmux"
 brew "watch"
