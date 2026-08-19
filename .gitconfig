@@ -6,7 +6,7 @@
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [diff]
-    tool = vscode
+    external = difft
 [difftool]
     prompt = false
 [mergetool "vscode"]
